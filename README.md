@@ -644,3 +644,30 @@ This project demonstrates an end-to-end approach to **E-commerce Sales Performan
 **Raw Data → Data Cleaning → Data Validation → KPI Calculation → Exploratory Analysis → Visualization → Business Insights → Recommendations**
 
 The project demonstrates how transactional data can be transformed into structured analysis and business-focused insights that support data-driven decision-making.
+
+# 💡 Key Business Insights
+# 📊 Key Visualizations
+
+### Monthly Sales Trend
+
+![Monthly Sales](charts/monthly_sales.png)
+
+### Sales by Category
+
+![Sales by Category](charts/category_sales.png)
+
+### Top Products by Sales
+
+![Top Products](charts/top_products.png)
+
+### Top Customers by Sales
+
+![Top Customers](charts/top_customers.png)
+
+### Top States by Sales
+
+![Top States](charts/top_states.png)
+
+### Delivery Performance by Category
+
+![Delivery Performance](charts/category_delivery.png)
