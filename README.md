@@ -2,35 +2,37 @@
 
 ## 📌 Project Overview
 
-This project analyzes e-commerce sales data to identify important business trends, customer behavior, product performance, sales drivers, and delivery performance.
+This project analyzes **10,000 e-commerce transactions** to evaluate sales performance, customer behavior, product and brand performance, geographic markets, payment methods, and delivery operations.
 
-The analysis was developed using **Python, Pandas, and Matplotlib**. The project follows a complete data analytics workflow:
+The analysis was developed using **Python, Pandas, and Matplotlib** and follows an end-to-end data analytics workflow:
 
-**Data Loading → Data Cleaning → Data Quality Validation → KPI Calculation → Business Analysis → Visualization → Exporting Results**
+**Data Loading → Data Cleaning → Data Quality Validation → KPI Calculation → Exploratory Analysis → Business Analysis → Visualization → Result Export**
 
-The goal of this project is to transform raw e-commerce transaction data into meaningful business insights that can support better decision-making.
+The objective is to transform raw transactional data into **meaningful business insights and actionable recommendations** that can support data-driven decision-making.
 
 ---
 
 ## 🎯 Business Objectives
 
-The project answers important business questions such as:
+The project answers key business questions such as:
 
-* How much total revenue was generated?
-* How many orders and customers were recorded?
-* What is the Average Order Value?
+* What is the total sales revenue?
+* How many orders and customers are recorded?
+* What is the Average Order Value (AOV)?
+* How many products were sold?
+* What percentage of customers are repeat customers?
 * Which product categories generate the highest sales?
 * Which products and brands perform best?
 * Which customers generate the most revenue?
 * Which states contribute the most sales?
-* Which payment methods generate the most sales?
+* Which payment methods contribute the most sales?
 * How do sales change over time?
 * How do discounts relate to sales?
-* How does order quantity affect sales?
+* How does order quantity relate to sales?
 * What is the average delivery time?
-* Which categories have longer delivery times?
+* Which categories and payment methods have longer delivery times?
 * What is the relationship between shipping cost and delivery time?
-* What factors are associated with higher sales?
+* What relationships exist between quantity, price, discount, shipping cost, and sales?
 
 ---
 
@@ -74,111 +76,204 @@ The dataset contains **10,000 e-commerce transactions** and **21 columns**.
 * **CSV**
 * **Data Cleaning**
 * **Exploratory Data Analysis (EDA)**
+* **KPI Analysis**
 * **Business Analysis**
 * **Data Visualization**
-* **Statistical/Correlation Analysis**
+* **Correlation Analysis**
+* **Data Quality Validation**
 
 ---
 
-## 🔄 Project Workflow
+# 🔄 Project Workflow
 
-### 1. Data Loading
+## 1. Data Loading
 
-The project loads the CSV dataset using Pandas and automatically determines the project directory using Python's `os` module.
+The project loads the e-commerce CSV dataset using Pandas.
 
-This makes the project easier to run without hardcoding an absolute file path.
+The Python script automatically determines the project directory using the `os` module instead of relying on a hardcoded absolute file path.
+
+This makes the project easier to run across different environments.
 
 ---
 
-### 2. Data Cleaning & Preparation
+## 2. Data Cleaning & Preparation
 
-The project performs several data-quality checks and cleaning operations:
+The project performs several data-quality and preparation steps:
 
 * Checks duplicate records
 * Removes duplicate rows
 * Converts date columns into datetime format
-* Checks missing values in important business columns
+* Checks missing values
 * Removes records missing essential information
 * Checks invalid numerical values
 * Removes invalid sales, quantity, price, and shipping records
 * Calculates delivery days
 * Creates a monthly analysis column
 
-These steps help ensure that the analysis is based on cleaner and more reliable data.
+These steps help improve the reliability and consistency of the analysis.
 
 ---
 
-### 3. Data Quality Validation
+## 3. Data Quality Validation
 
-After cleaning, the project performs a final validation by checking:
+After cleaning, the project performs final validation by checking:
 
 * Final number of rows
 * Number of rows removed
 * Number of columns
-* Remaining duplicates
+* Remaining duplicate records
 * Remaining missing values
 * Valid delivery records
 
+This ensures that the cleaned dataset is suitable for business analysis.
+
 ---
 
-## 📊 KPI Analysis
+# 📊 KPI Analysis
 
-The project calculates the following key performance indicators:
+The project calculates key performance indicators to measure overall business performance.
 
-* **Total Sales**
-* **Total Orders**
-* **Total Customers**
-* **Average Order Value (AOV)**
-* **Average Delivery Days**
-* **Total Quantity Sold**
-* **Average Items per Order**
-* **Repeat Customer Percentage**
+## KPI Results
 
-## The KPI summary is also exported as a CSV file for further reporting.
+| KPI                        |    Result |
+| -------------------------- | --------: |
+| Total Sales                |   642.13M |
+| Total Orders               |    10,000 |
+| Total Customers            |     6,016 |
+| Average Order Value        | 64,212.91 |
+| Average Delivery Days      |     13.28 |
+| Total Quantity Sold        |    30,144 |
+| Average Items per Order    |      3.01 |
+| Repeat Customer Percentage |    46.21% |
 
-## 👥 Customer Analysis
+The KPI summary is also exported as:
 
-Customer analysis includes:
+`outputs/kpi_summary.csv`
+
+---
+
+# 👥 Customer Analysis
+
+Customer analysis evaluates purchasing behavior and customer value.
+
+The project analyzes:
 
 * Orders per customer
-* Repeat customer count
+* Repeat customers
 * Repeat customer percentage
-* Top 10 customers by sales
+* Top customers by sales
 
-This helps identify high-value customers and understand customer purchasing behavior.
+### Key Finding
+
+The dataset contains **6,016 customers**, with a **46.21% repeat customer percentage**.
+
+The highest-value customer in the analysis was:
+
+**Megan Johnson — approximately 519.13K in sales**
+
+This highlights the importance of identifying and retaining high-value customers.
 
 ---
 
-## 🛍️ Product & Category Analysis
+# 🛍️ Product & Category Analysis
 
-The project analyzes sales performance across:
+Sales performance is analyzed across:
 
 * Categories
 * Sub-categories
 * Products
 * Brands
 
-It identifies the top-performing categories, products, and brands based on total sales.
+## Category Sales
+
+| Category    | Total Sales |
+| ----------- | ----------: |
+| Electronics |     219.36M |
+| Home        |     214.76M |
+| Fashion     |     208.01M |
+
+### Key Finding
+
+**Electronics** was the highest-selling category with approximately **219.36M** in sales.
+
+The three major categories performed relatively closely, indicating that sales are distributed across multiple product categories rather than being concentrated entirely in one category.
 
 ---
 
-## 🌎 Geographic Analysis
+# 🏷️ Brand Analysis
 
-Sales performance is analyzed by state to identify the highest-performing geographic markets.
+The project identifies the highest-performing brands based on total sales.
 
-The project generates a **Top 10 States by Sales** analysis.
+### Top Brand
+
+**Johnson and Sons — approximately 1.19M**
+
+Other high-performing brands included:
+
+* Smith Ltd — approximately 1.18M
+* Smith and Sons — approximately 1.01M
+* Jones and Sons — approximately 996K
+* Martinez and Sons — approximately 958K
+
+The complete brand analysis is available through the generated charts and analysis outputs.
 
 ---
 
-## 💳 Payment Analysis
+# 🛒 Top Product Analysis
 
-The project evaluates sales performance by payment method and calculates the percentage contribution of each payment method to total sales.
+The project ranks products based on total sales.
+
+### Top Products by Sales
+
+| Rank | Product  | Total Sales |
+| ---: | -------- | ----------: |
+|    1 | maintain |       2.10M |
+|    2 | include  |       1.93M |
+|    3 | trouble  |       1.71M |
+|    4 | suffer   |       1.63M |
+|    5 | will     |       1.59M |
+
+The product ranking helps identify products that contribute significantly to overall revenue.
 
 ---
 
-## 📅 Time-Based Analysis
+# 🌎 Geographic Analysis
 
-Monthly analysis is performed to understand sales trends over time.
+Sales performance is analyzed by state to identify strong geographic markets.
+
+### Top States by Sales
+
+| Rank | State          | Total Sales |
+| ---: | -------------- | ----------: |
+|    1 | North Carolina |      15.04M |
+|    2 | Arizona        |      14.71M |
+|    3 | Oklahoma       |      14.38M |
+|    4 | North Dakota   |      14.35M |
+|    5 | New Mexico     |      14.26M |
+
+### Key Finding
+
+**North Carolina** generated the highest sales among the states included in the analysis, with approximately **15.04M** in sales.
+
+---
+
+# 💳 Payment Analysis
+
+The project evaluates sales performance across different payment methods.
+
+The analysis calculates:
+
+* Total sales by payment method
+* Sales contribution percentage
+* Delivery performance by payment method
+
+This helps understand customer payment preferences and whether payment methods are associated with differences in delivery performance.
+
+---
+
+# 📅 Time-Based Analysis
+
+Monthly analysis is performed to identify sales trends over time.
 
 The project calculates:
 
@@ -186,11 +281,28 @@ The project calculates:
 * Monthly orders
 * Monthly average sales
 
+## Monthly Sales Results
+
+| Month         | Total Sales |
+| ------------- | ----------: |
+| January 2026  |     489.99M |
+| February 2026 |     152.14M |
+
+### Key Finding
+
+January 2026 generated approximately **489.99M**, representing about **76.31% of total sales** in the dataset.
+
+February generated approximately **152.14M**, representing about **23.69%**.
+
+The significant difference between the two months should be investigated further to understand the underlying business drivers.
+
 ---
 
-## 🚚 Delivery & Shipping Analysis
+# 🚚 Delivery & Shipping Analysis
 
-The project calculates:
+The project evaluates operational delivery performance.
+
+The analysis calculates:
 
 * Average delivery days
 * Minimum delivery days
@@ -200,13 +312,23 @@ The project calculates:
 * Total shipping cost
 * Average shipping cost
 
-It also analyzes the relationship between shipping cost and delivery time.
+It also analyzes the relationship between:
+
+**Shipping Cost ↔ Delivery Time**
+
+### Key Finding
+
+The overall average delivery time was approximately:
+
+**13.28 days**
+
+This provides a useful baseline for evaluating delivery performance across categories, payment methods, and geographic markets.
 
 ---
 
-## 📈 Correlation Analysis
+# 📈 Correlation Analysis
 
-Correlation analysis is performed between:
+Correlation analysis is performed between important numerical business variables:
 
 * Quantity
 * Unit Price
@@ -214,15 +336,17 @@ Correlation analysis is performed between:
 * Shipping Cost
 * Total Sales
 
-This helps identify relationships between numerical business variables.
+The analysis helps identify relationships between numerical variables and provides additional context for understanding potential sales drivers.
+
+Correlation results should be interpreted as relationships in the dataset and **not automatically as evidence of causation**.
 
 ---
 
-## 📊 Visualizations
+# 📊 Visualizations
 
 The project automatically generates multiple visualizations using Matplotlib.
 
-### Bar Charts
+## Bar Charts
 
 * Monthly Sales
 * Sales by Category
@@ -238,23 +362,130 @@ The project automatically generates multiple visualizations using Matplotlib.
 * Average Sales by Order Quantity
 * Top Discount Levels by Sales
 
-### Scatter Plots
+## Scatter Plots
 
 * Sales vs Discount
 * Quantity vs Total Sales
 * Unit Price vs Total Sales
 * Shipping Cost vs Delivery Time
 
-### Histograms
+## Histograms
 
 * Delivery Days Distribution
 * Total Sales Distribution
 
-The charts are automatically saved as high-resolution PNG files.
+All charts are automatically saved as PNG files in the `charts/` directory.
 
 ---
 
-## 📁 Project Structure
+# 💡 Key Business Insights
+
+Based on the analysis, the following business insights were identified:
+
+1. **Overall sales performance:** The dataset generated approximately **642.13M** in total sales across **10,000 orders**.
+
+2. **Customer value:** The Average Order Value was approximately **64,212.91**, while customers purchased an average of **3.01 items per order**.
+
+3. **Customer retention:** **46.21%** of customers were repeat customers, indicating a substantial returning-customer base.
+
+4. **Category leadership:** **Electronics** was the highest-selling category with approximately **219.36M** in sales, followed by Home and Fashion.
+
+5. **Monthly concentration:** January 2026 generated approximately **489.99M**, accounting for about **76.31%** of total sales in the dataset.
+
+6. **Monthly decline:** February 2026 generated approximately **152.14M**, showing a substantial decline compared with January. The underlying reasons require further investigation.
+
+7. **High-value customers:** Megan Johnson was the highest-value customer in the analysis, generating approximately **519.13K** in sales.
+
+8. **Geographic performance:** North Carolina was the highest-selling state in the Top 10 state analysis, generating approximately **15.04M**.
+
+9. **Brand performance:** Johnson and Sons was the highest-selling brand, generating approximately **1.19M** in sales.
+
+10. **Delivery performance:** Average delivery time was approximately **13.28 days**, providing a baseline for operational performance monitoring.
+
+---
+
+# 🎯 Business Recommendations
+
+Based on the findings, the following actions could support business decision-making:
+
+### 1. Investigate the January–February sales decline
+
+The large difference between January and February sales should be investigated further.
+
+Potential areas for investigation include:
+
+* Product availability
+* Marketing campaigns
+* Customer acquisition
+* Discount activity
+* Seasonality
+* Order volume
+* Operational factors
+
+The current analysis identifies the decline but does not establish a specific cause.
+
+### 2. Focus on the Electronics category
+
+Electronics generated the highest category sales.
+
+The business could further analyze:
+
+* Top Electronics products
+* Electronics brands
+* Customer segments
+* Average Order Value
+* Repeat purchases
+* Profitability
+
+This can help identify opportunities for additional growth.
+
+### 3. Strengthen customer retention
+
+With **46.21% repeat customers**, customer retention represents an important business opportunity.
+
+Potential strategies include:
+
+* Loyalty programs
+* Personalized promotions
+* Cross-selling
+* Upselling
+* Targeted retention campaigns
+
+High-value customers can receive additional attention based on their purchasing behavior.
+
+### 4. Analyze high-performing geographic markets
+
+North Carolina was the highest-selling state in the analysis.
+
+The business could compare high-performing states based on:
+
+* Customer count
+* Average Order Value
+* Repeat customer rate
+* Delivery time
+* Shipping cost
+
+This would help determine whether strong sales are driven by customer volume or higher customer value.
+
+### 5. Monitor delivery performance
+
+The overall average delivery time was **13.28 days**.
+
+Categories and regions with significantly higher delivery times should be investigated to identify potential operational improvements.
+
+### 6. Optimize product and brand strategy
+
+Top-performing products and brands can be analyzed further to support:
+
+* Inventory planning
+* Promotional strategies
+* Product positioning
+* Cross-selling opportunities
+* Demand planning
+
+---
+
+# 📁 Project Structure
 
 ```text
 ecommerce-sales-performance-analytics/
@@ -262,6 +493,7 @@ ecommerce-sales-performance-analytics/
 ├── amazon_sales_dataset.csv
 ├── ecommerce_sales_analysis.py
 ├── README.md
+├── .gitignore
 │
 ├── charts/
 │   ├── monthly_sales.png
@@ -294,82 +526,96 @@ ecommerce-sales-performance-analytics/
     └── top_states.csv
 ```
 
-The Python script automatically creates the `charts` and `outputs` directories if they do not already exist.
+The Python script automatically creates the `charts/` and `outputs/` directories if they do not already exist.
 
 ---
 
-## ▶️ How to Run the Project
+# ▶️ How to Run the Project
 
-### Step 1: Clone the repository
+## Step 1: Clone the repository
 
 ```bash
-git clone <YOUR_GITHUB_REPOSITORY_URL>
+git clone https://github.com/suvarnanaik7552-lab/ecommerce-sales-performance-analytics.git
 ```
 
-### Step 2: Open the project folder
+## Step 2: Open the project folder
 
 ```bash
 cd ecommerce-sales-performance-analytics
 ```
 
-### Step 3: Install required libraries
+## Step 3: Install required libraries
 
 ```bash
 pip install pandas matplotlib
 ```
 
-### Step 4: Run the analysis
+## Step 4: Run the analysis
 
 ```bash
 python ecommerce_sales_analysis.py
 ```
 
-### Step 5: View the results
+## Step 5: View the results
 
 After execution:
 
-* Check the `charts/` folder for visualizations.
-* Check the `outputs/` folder for analysis tables and KPI results.
+* Open the `charts/` folder to view generated visualizations.
+* Open the `outputs/` folder to view exported analysis tables and KPI results.
 
-The script prints the final business analysis summary and confirms where charts and output files have been saved.
-
----
-
-## 💡 Key Business Insights
-
-The analysis can be used to identify:
-
-* Revenue-generating product categories
-* High-value customers
-* Top-performing products and brands
-* Strong geographic markets
-* Popular payment methods
-* Monthly sales trends
-* Customer repeat-purchase behavior
-* Delivery performance
-* Shipping-cost patterns
-* Relationships between discounts, quantity, price, and sales
+The Python script prints the final analysis summary and confirms where charts and output files have been saved.
 
 ---
 
-## 🎯 Business Value
+# 📌 Project Outputs
 
-This project demonstrates how raw transactional data can be transformed into business-focused information.
+The project generates:
 
-The analysis can help an e-commerce business:
+### KPI Output
 
-* Monitor sales performance
-* Identify high-value customers
-* Understand product demand
-* Evaluate delivery performance
-* Monitor shipping costs
-* Identify high-performing markets
-* Track important KPIs
-* Support data-driven business decisions
+`outputs/kpi_summary.csv`
+
+Contains the main business KPIs.
+
+### Category Analysis
+
+`outputs/category_sales.csv`
+
+Contains total sales by category.
+
+### Monthly Analysis
+
+`outputs/monthly_sales.csv`
+
+Contains monthly sales performance.
+
+### Customer Analysis
+
+`outputs/top_customers.csv`
+
+Contains the highest-value customers by sales.
+
+### Product Analysis
+
+`outputs/top_products.csv`
+
+Contains top-performing products by sales.
+
+### Brand Analysis
+
+`outputs/top_brands.csv`
+
+Contains top-performing brands by sales.
+
+### Geographic Analysis
+
+`outputs/top_states.csv`
+
+Contains top-performing states by sales.
 
 ---
 
-## 🚀 Future Improvements
+# 🚀 Future Improvements
 
 Possible future enhancements include:
 
@@ -379,17 +625,22 @@ Possible future enhancements include:
 * Adding customer segmentation
 * Performing sales forecasting
 * Adding profitability analysis
-* Creating a more detailed cohort/retention analysis
+* Creating cohort and retention analysis
+* Adding customer lifetime value analysis
 * Deploying the analysis as an interactive dashboard
 
 ---
 
-## 👩‍💻 Skills Demonstrated
+# 👩‍💻 Skills Demonstrated
 
-**Python | Pandas | Matplotlib | Data Cleaning | EDA | KPI Analysis | Business Analysis | Data Visualization | Statistical Analysis | Data Quality Validation**
+**Python | Pandas | Matplotlib | Data Cleaning | EDA | KPI Analysis | Business Analysis | Data Visualization | Correlation Analysis | Data Quality Validation**
 
 ---
 
-## 📌 Project Outcome
+# 📌 Project Outcome
 
-This project demonstrates an end-to-end approach to **e-commerce sales performance analytics**, from raw data preparation to KPI calculation, business analysis, visualization, and automated output generation.
+This project demonstrates an end-to-end approach to **E-commerce Sales Performance Analytics**, covering:
+
+**Raw Data → Data Cleaning → Data Validation → KPI Calculation → Exploratory Analysis → Visualization → Business Insights → Recommendations**
+
+The project demonstrates how transactional data can be transformed into structured analysis and business-focused insights that support data-driven decision-making.
